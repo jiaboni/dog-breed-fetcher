@@ -21,7 +21,7 @@ public class CachingBreedFetcher implements BreedFetcher {
     }
 
     @Override
-    public List<String> getSubBreeds(String breed) {
+    public List<String> getSubBreeds(String breed) throws BreedNotFoundException {
         if (!cache.containsKey(breed)) {
             callsMade++;
             cache.put(breed, fetcher.getSubBreeds(breed));
